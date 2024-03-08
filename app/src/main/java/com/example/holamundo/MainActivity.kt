@@ -3,6 +3,8 @@ package com.example.holamundo
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -17,6 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -33,9 +36,26 @@ class MainActivity : ComponentActivity() {
 
 /*
 * Modificadores
+* De posicionamiento = width, height
+* De funcionalidad = click, scroll
+* De apariencia = background, padding, border
+* De escucha = onKeyEvent
 * */
 @Preview(showBackground = true)
 @Composable
 fun Content() {
-    Text(text = "Hola Jetpack!", color = Color.Red, fontWeight = FontWeight.Bold, fontSize = 40.sp)
+    Text(
+        text = "Hola Jetpack!",
+        color = Color.Red,
+        fontWeight = FontWeight.Bold,
+        fontSize = 40.sp,
+        textAlign = TextAlign.Center,
+        modifier = Modifier
+            .background(color = Color.Black)
+            .padding(horizontal = 30.dp, vertical = 20.dp)
+            .clickable {
+                println("Hola Jetpack")
+            }
+    )
 }
+
